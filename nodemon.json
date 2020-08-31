@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "services/**/*"
+    ],
+    "exec": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config moleculer.config.ts services/**/*.service.ts",
+    "ext": "tx,tsx,js,json,yaml",
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "verbose": true
+}
