@@ -91,7 +91,7 @@ class ApiService extends Service {
 				logResponseData: null,
 				// Serve assets from "public" folder
 				assets: {
-					folder: "public",
+					folder: "src/public",
 					// Options to `server-static` module
 					options: {},
 				},

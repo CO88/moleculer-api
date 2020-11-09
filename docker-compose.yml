@@ -5,6 +5,7 @@ services:
   api:
     build:
       context: .
+      dockerfile: Dockerfile
     image: moleculer
     env_file: docker-compose.env
     environment:
@@ -22,6 +23,7 @@ services:
   greeter:
     build:
       context: .
+      dockerfile: Dockerfile
     image: moleculer
     env_file: docker-compose.env
     environment:
@@ -31,9 +33,23 @@ services:
     networks:
       - internal
 
+  helper:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: moleculer
+      env_file: docker-compose.env
+      environment:
+        SERVICES: helper
+      depends_on:
+        - nats
+      networks:
+        - internal
+
   products:
     build:
       context: .
+      dockerfile: Dockerfile
     image: moleculer
     env_file: docker-compose.env
     environment:

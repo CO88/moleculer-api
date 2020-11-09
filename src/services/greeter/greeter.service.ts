@@ -18,7 +18,8 @@ export default class GreeterService extends Service {
 						method: "GET",
 						path: "/hello",
 					},
-					async handler(): Promise<string> {
+					async handler(ctx): Promise<string> {
+						ctx.emit("hello.called");
 						return this.ActionHello();
 					},
 				},
