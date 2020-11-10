@@ -6,6 +6,7 @@
     "build": "tsc --build tsconfig.json",
     "dev": "nodemon -L",
     "start": "NODE_ENV=production ts-node ./src/index.ts",
+    "dc:down": "docker-compose down -v && docker image rm moleculer",
     "cli": "moleculer connect NATS",
     "test": "jest --coverage",
     "lint": "eslint --ext .js,.ts ."
@@ -30,7 +31,7 @@
   "dependencies": {
     "@types/jest": "^25.1.4",
     "@types/mkdirp": "^1.0.0",
-    "@types/node": "^13.9.8",
+    "@types/node": "^13.13.30",
     "moleculer": "^0.14.0",
     "moleculer-db": "^0.8.4",
     "moleculer-db-adapter-mongo": "^0.4.7",

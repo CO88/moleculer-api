@@ -55,11 +55,12 @@ const brokerConfig: BrokerOptions = {
 	// Available values: trace, debug, info, warn, error, fatal
 	logLevel: "debug",
 
-	// Define transporter.
-	// More info: https://moleculer.services/docs/0.14/networking.html
-	// Note: During the development, you don't need to define it because all services will be loaded locally.
-	// In production you can set it via `TRANSPORTER=nats://localhost:4222` environment variable.
-	transporter: null, //"NATS"
+	// transporter를 정의합니다..
+	// @see https://moleculer.services/docs/0.14/networking.html
+	// 개발환경에선 모든 서비스가 로드되어있기 때문에 값을 설정할 필요가 없습니다.
+	// 개발환경에선 `TRANSPORTER=nats://localhost:4222` 같은 환경 변수를 사용할 수 있습니다.
+	transporter: process.env.TRANSPORTER || null, //"NATS"
+	// transporter: "nats://nats:4222", //"NATS"
 
 	// Define a cacher.
 	// More info: https://moleculer.services/docs/0.14/caching.html
@@ -109,7 +110,7 @@ const brokerConfig: BrokerOptions = {
 	},
 
 	// Disable built-in request & emit balancer. (Transporter must support it, as well.). More info: https://moleculer.services/docs/0.14/networking.html#Disabled-balancer
-	disableBalancer: false,
+	disableBalancer: true,
 
 	// Settings of Service Registry. More info: https://moleculer.services/docs/0.14/registry.html
 	registry: {
@@ -195,6 +196,7 @@ const brokerConfig: BrokerOptions = {
 
 	// Register custom REPL commands.
 	replCommands: null,
+	
 	/*
 	// Called after broker created.
 	created : (broker: ServiceBroker): void => {},
